@@ -82,7 +82,7 @@ public class CaesarCipher {
     }
     public void testEncryptTwoKeys() {
         
-        System.out.println(encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 8, 21)); 
+        System.out.println(encryptTwoKeys("Top ncmy qkff vi vguv vbg ycpx", 24, 6)); 
         
     }
 }
