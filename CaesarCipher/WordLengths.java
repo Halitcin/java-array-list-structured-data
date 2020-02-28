@@ -10,14 +10,22 @@ import edu.duke.*;
 public class WordLengths {
     public void countWordLengths(FileResource resource, int [] counts){
         for (String word: resource.words()){
-            word = word.toLowerCase();
             int wordLength = word.length();
-            if (!Character.isLetter(word.charAt(0))){
+            if ( word.length() == 1 && !Character.isLetter(word.charAt(0))){
+                wordLength = 1;
+            }
+            else word = word.toLowerCase();
+            if (word.length() != 1 && !Character.isLetter(word.charAt(0))){
                 wordLength -= 1;
             }
-            if (!Character.isLetter(word.charAt(word.length() - 1))){
+            if ( word.length() != 1 && !Character.isLetter(word.charAt(word.length() - 1))){
                 wordLength -= 1; 
             }
+            if (wordLength >= counts.length) {
+                counts[counts.length - 1] +=1; 
+            }
+            System.out.println(wordLength);
+            System.out.println(word);
             counts[wordLength] += 1;
         }
     }

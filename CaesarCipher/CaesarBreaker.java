@@ -31,19 +31,19 @@ public class CaesarBreaker {
         return maxIdx;
     }
     public String decrypt(String encrypted){
-        CaesarCipher cc = new CaesarCipher();
+        CaesarCipher cc = new CaesarCipher(1);
         int [] freqs = counterLetter(encrypted);
         int maxDex = maxIndex(freqs);
         int dkey = maxDex - 4;
         if (maxDex < 4){
             dkey = 26 - (4 - maxDex);
         }
-        return cc.encrypt(encrypted, 26 - dkey);
+        return cc.encrypt1(encrypted, 26 - dkey);
     }
     public void testDecrypt (){
         String test = "At noon be in the conference room with youreeeeeeeeeee hat on for a surprise party. YELL LOUD!";
-        CaesarCipher cc1 = new CaesarCipher();
-        String encrypted = cc1.encrypt(test, 15);
+        CaesarCipher cc1 = new CaesarCipher(1);
+        String encrypted = cc1.encrypt1(test, 15);
         System.out.println(test);
         System.out.println(encrypted);
         System.out.println(decrypt(encrypted));
@@ -79,11 +79,11 @@ public class CaesarBreaker {
         return cc.encryptTwoKeys(encrypted, 26 - key1, 26 - key2);
     }
     public void testDecryptTwoKeys (){
-        String test = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
+        //String test = "Aal uttx hm aal Qtct Fhljha pl Wbdl. Pvxvxlx!";
         CaesarCipher cc2 = new CaesarCipher();
         FileResource fr = new FileResource();
         String encrypted = fr.asString();
-        System.out.println(encrypted);
+        //System.out.println(encrypted);
         System.out.println(decryptTwoKeys(encrypted));
     }
     
