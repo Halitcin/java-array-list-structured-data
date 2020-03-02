@@ -51,7 +51,49 @@ public class WordsInFiles {
         for (File f : dr.selectedFiles()) {
            addWordsFromFile(f);
         }
-        System.out.println(words);
     }
-    
+    public int maxNumber(){
+        int max = 0;
+        for (String s : words.keySet()){
+            if (words.get(s).size() > max){
+                max = words.get(s).size();
+            }
+        }
+        return max;
+    }
+    public ArrayList<String> wordsInNumFiles(int number){
+        ArrayList<String> wordNumber = new ArrayList<String>();
+        for (String s : words.keySet()){
+            if (words.get(s).size() == number){
+                wordNumber.add(s);
+            }
+        }
+        return wordNumber;
+    }
+    public void printFilesIn(String name){
+        for (String s : words.keySet()){
+            if (s.equals(name)){
+                for( int i = 0; i < words.get(s).size(); i++){
+                    System.out.println(words.get(s).get(i));
+                }
+            }
+        }
+    }
+    public void tester(){
+        WordsInFiles wF = new WordsInFiles();
+        wF.buildWordFileMap();
+        //System.out.println(wF.wordsInNumFiles(5).size());
+        //System.out.println(wF.wordsInNumFiles(4).size());
+        wF.printFilesIn("red");
+        ArrayList<String> test = new ArrayList<String>();
+        test = wF.wordsInNumFiles(wF.maxNumber());
+        /*for (int i = 0; i < test.size(); i++){
+            System.out.println(test.get(i));
+            wF.printFilesIn(test.get(i));
+        }
+        for (String s : wF.words.keySet()){
+            System.out.println(s+ "\t"+ wF.words.get(s));
+        }*/
+        
+    }
 }

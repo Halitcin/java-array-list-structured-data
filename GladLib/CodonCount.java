@@ -53,11 +53,14 @@ public class CodonCount {
         }
     }
     public void tester(){
+        CodonCount cc = new CodonCount();
         FileResource fr = new FileResource();
-        for (int i = 0; i < 3; i++){
-            buildCodonMap (i, fr.asString().trim());
-            System.out.println(getMostCommonCodon());
-            printCodonCounts(1, 5);
-        }
+        /*for (int i = 0; i < 3; i++){
+            cc.buildCodonMap (i, fr.asString().trim());
+            System.out.println(cc.codons.size());
+            //printCodonCounts(1, 5);
+        }*/
+        cc.buildCodonMap (1, fr.asString().trim());
+        System.out.println(cc.getMostCommonCodon());
     }
 }
